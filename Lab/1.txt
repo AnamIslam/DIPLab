@@ -1,0 +1,19 @@
+clc;
+clear all;
+close all;
+
+x=imread('test2.jpg');
+dx=im2double(x);
+z=dx;
+[row,col]=size(dx);
+
+c = input('Enter c ');
+
+for i=1 : row
+    for j=1 : col
+        z(i,j) = c*log(1+dx(i,j));
+    end
+end
+
+subplot(2,2,1),imshow(dx);title('Original grey image');
+subplot(2,2,2),imshow(z);title('Output');
